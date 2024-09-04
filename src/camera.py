@@ -67,8 +67,6 @@ def display_video_feed(camera, face_recognizer, label_map, target_label_id, open
 
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-    recognized_person = False  # Flag to check if a recognized person is detected
-
     while True:
         ret, frame = camera.read()
         if not ret:
@@ -85,7 +83,6 @@ def display_video_feed(camera, face_recognizer, label_map, target_label_id, open
             flags=cv2.CASCADE_SCALE_IMAGE
         )
 
-        label_text = "Unknown"  # Initialize label_text with a default value
         recognized_person = False  # Reset flag for every frame
 
         for (x, y, w, h) in faces:
